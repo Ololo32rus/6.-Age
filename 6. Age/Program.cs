@@ -1,39 +1,45 @@
 ﻿// N - кол-во людей. Определить ск людей до 1985 г.р. < и > 1990 г.р.
 
-/*
-int old = 0;
-int young = 0;
- int N = 100;                           // количество людей
-    Random rnd = new Random ();         // рандомное число Г.Р.
-int A = rnd .Next (1950, 2010);         // диапазон Г.Р.
+int OldSum;
+int YoungSum;
+int People;
+int Old;
+int Young;
+int[] AllPeople;
 
-for (int i = 1; i < N + 1; i++)           // задаём цикл на кол-во людей
-{
 
-    if (A <= 1985)                      // Ставим условие для рандома
-    { i += old + i; }                    // При выполнении условия 
+Random rnd = new Random();
 
-    Console.WriteLine($"Старпёры {old} ");
-это я пытался через цикл и if, но не придумал как присвоить людей к году рождения... белебирду выдаёт 
-потом думал через массив но чот отмёл эту идею (Тоже думал как присвоить чуваков к возрасту), и опять вернулся к нему после хз ск времени*/
-
-int Old = 0;
-int Young = 0;
-int People ;
 Console.Write($"Введите количество людей в группе = ");
-    People = int.Parse(Console.ReadLine());
-        int[] N = new int[People] ;
+People = int.Parse(Console.ReadLine());
 
-Random rnd = new Random();        
-int A = rnd.Next(1950, 2010);
+AllPeople = new int[People];
 
-for (int i = 0; i < N.Length; i++)
+for (int i = 0; i < AllPeople.Length; i++)
 {
-
-    if (N[A] < 1985) 
-        Old += i;
-    if (N[A] > 1990)
-        Young += i ;
+    AllPeople[i] = rnd.Next(1950, 2010);
 }
-Console.WriteLine($" Миллиниалов {Young} \n Старпёров {Old}" );
+for (int i = 0; i < AllPeople.Length; i++)
+{
+    Console.Write($"{AllPeople[i]}");
+}
 
+Console.WriteLine();
+
+OldSum = 0; YoungSum = 0;
+
+for (int i = 0; i < AllPeople.Length; i++)
+{
+    if (AllPeople[i] < 1985)
+    {
+        OldSum += AllPeople[i];
+    }
+    else
+    {
+        YoungSum += AllPeople[i];
+    }
+}
+
+
+Console.WriteLine($" Old People < 1985 = {OldSum} ");
+Console.WriteLine($" Young People > 1985 = {YoungSum} ");
