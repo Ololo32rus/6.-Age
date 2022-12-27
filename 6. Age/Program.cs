@@ -7,7 +7,6 @@ int Old;
 int Young;
 int[] AllPeople;
 
-
 Random rnd = new Random();
 
 Console.Write($"Введите количество людей в группе = ");
@@ -21,7 +20,7 @@ for (int i = 0; i < AllPeople.Length; i++)
 }
 for (int i = 0; i < AllPeople.Length; i++)
 {
-    Console.Write($"{AllPeople[i]}");
+    Console.WriteLine($"{AllPeople[i]}");
 }
 
 Console.WriteLine();
@@ -32,14 +31,14 @@ for (int i = 0; i < AllPeople.Length; i++)
 {
     if (AllPeople[i] < 1985)
     {
-        OldSum += AllPeople[i];
+        OldSum ++;
     }
-    else
+    else if (AllPeople[i] > 1990)
     {
-        YoungSum += AllPeople[i];
+        YoungSum ++;
     }
 }
 
 
 Console.WriteLine($" Old People < 1985 = {OldSum} ");
-Console.WriteLine($" Young People > 1985 = {YoungSum} ");
+Console.WriteLine($" Young People > 1990 = {YoungSum} ");
